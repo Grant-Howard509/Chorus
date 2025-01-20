@@ -19,7 +19,7 @@ ChorusAudioProcessor::ChorusAudioProcessor()
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                       ), params(apvts)
 #endif
 {
 }
@@ -150,6 +150,16 @@ void ChorusAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce:
     // the samples and the outer loop is handling the channels.
     // Alternatively, you can process the samples with the channels
     // interleaved by keeping the same state.
+    
+    
+    // Gain parameter value
+    float gain = params.gain;
+    
+    /*
+     * TODO:
+     * Apply gain to buffer with smoothing
+     */
+    
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
         auto* channelData = buffer.getWritePointer (channel);
@@ -166,7 +176,8 @@ bool ChorusAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* ChorusAudioProcessor::createEditor()
 {
-    return new ChorusAudioProcessorEditor (*this);
+    // return new ChorusAudioProcessorEditor (*this);
+    return new juce::GenericAudioProcessorEditor(*this);
 }
 
 //==============================================================================

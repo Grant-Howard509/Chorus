@@ -9,6 +9,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "Parameters.h"
 
 //==============================================================================
 /**
@@ -52,8 +53,15 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+    
+    juce::AudioProcessorValueTreeState apvts
+    {
+        *this, NULL, "Parameters", Parameters::createParameterLayout()
+    };
 
 private:
+    
+    Parameters params;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ChorusAudioProcessor)
 };

@@ -4,6 +4,8 @@
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
   <MAINGROUP id="gUAwSI" name="Chorus">
     <GROUP id="{CD0F3C46-C757-34CD-2EE9-703F9F6682DC}" name="Source">
+      <FILE id="GMfkEH" name="Parameters.cpp" compile="1" resource="0" file="Source/Parameters.cpp"/>
+      <FILE id="kI1M7I" name="Parameters.h" compile="0" resource="0" file="Source/Parameters.h"/>
       <FILE id="iMLYHO" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="FfdXUI" name="PluginProcessor.h" compile="0" resource="0"
